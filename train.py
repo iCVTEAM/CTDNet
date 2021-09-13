@@ -1,5 +1,4 @@
 # coding=utf-8
-# tensorboard --logdir F:\PycharmCode\TPDNet\src\out
 
 import sys
 import datetime
@@ -13,8 +12,8 @@ import torch.nn as nn
 import torch.nn.functional as F
 from torch.utils.data import DataLoader
 from tensorboardX import SummaryWriter
-import src.dataset as dataset
-from src.net import CTDNet
+import dataset as dataset
+from net import CTDNet
 from apex import amp
 
 
@@ -63,13 +62,13 @@ def train(Dataset, Network):
     random.seed(seed)
 
     ## dataset
-    cfg = Dataset.Config(datapath='../data/DUTS', savepath='./out', mode='train', batch=32, lr=0.05, momen=0.9, decay=5e-4, epoch=48)
+    cfg = Dataset.Config(datapath='../data/DUTS', savepath='./out', mode='train', batch=32, lr=0.05, momen=0.9, decay=5e-4, epoch=40)
     data = Dataset.Data(cfg)
-    loader = DataLoader(data, collate_fn=data.collate, batch_size=cfg.batch, shuffle=True)
+    loader = DataLoader(data, collate_fn=data.collate, batch_size=cfg.batch, shuffle=True, num_workers=8)
     ## val dataloader
     val_cfg = Dataset.Config(datapath='../data/ECSSD', mode='test')
     val_data = Dataset.Data(val_cfg)
-    val_loader = DataLoader(val_data, batch_size=1, shuffle=False)
+    val_loader = DataLoader(val_data, batch_size=1, shuffle=False, num_workers=8)
     min_mae = 1.0
     best_epoch = 0
     ## network
@@ -92,18 +91,6 @@ def train(Dataset, Network):
     for epoch in range(cfg.epoch):
         optimizer.param_groups[0]['lr'] = (1-abs((epoch+1)/(cfg.epoch+1)*2-1))*cfg.lr*0.1
         optimizer.param_groups[1]['lr'] = (1-abs((epoch+1)/(cfg.epoch+1)*2-1))*cfg.lr
-        '''
-        if epoch < 40:
-            optimizer.param_groups[0]['lr'] = (1 - abs((epoch + 1) / (40 + 1) * 2 - 1)) * cfg.lr * 0.1
-            optimizer.param_groups[1]['lr'] = (1 - abs((epoch + 1) / (40 + 1) * 2 - 1)) * cfg.lr
-        else:
-            if epoch % 2 == 0:
-                optimizer.param_groups[0]['lr'] = (1 - abs((38 + 1) / (40 + 1) * 2 - 1)) * cfg.lr * 0.1
-                optimizer.param_groups[1]['lr'] = (1 - abs((38 + 1) / (40 + 1) * 2 - 1)) * cfg.lr
-            else:
-                optimizer.param_groups[0]['lr'] = (1 - abs((39 + 1) / (40 + 1) * 2 - 1)) * cfg.lr * 0.1
-                optimizer.param_groups[1]['lr'] = (1 - abs((39 + 1) / (40 + 1) * 2 - 1)) * cfg.lr
-        '''
 
         for step, (image, mask, edge) in enumerate(loader):
             image, mask, edge = image.cuda().float(), mask.cuda().float(), edge.float().cuda()
@@ -139,7 +126,7 @@ def train(Dataset, Network):
                 best_epoch = epoch + 1
                 torch.save(net.state_dict(), cfg.savepath + '/model-' + str(epoch + 1))
             print('best epoch is:%d, MAE:%s' % (best_epoch, min_mae))
-            if epoch == 46 or epoch == 47:
+            if epoch == 38 or epoch == 39:
                 torch.save(net.state_dict(), cfg.savepath + '/model-' + str(epoch + 1))
 
 
