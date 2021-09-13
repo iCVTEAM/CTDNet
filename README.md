@@ -34,6 +34,11 @@ python test.py
 - CTDNet-50: saliency maps;   trained model
 
 # Evaluation
+- To evaluate the performace of our method, please use MATLAB to run ```main.m```
+```
+    cd eval
+    matlab main
+```
 
 # Reference
 This project is based on the implementation of [F3Net](https://github.com/weijun88/F3Net).
