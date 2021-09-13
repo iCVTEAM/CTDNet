@@ -12,26 +12,24 @@ The PyTorch code for ACM MM2021 paper "Complementary Trilateral Decoder for Fast
 # Dataset
 Download the SOD datasets and unzip them into ```data``` folder.
 
-# Model
-- If you want to test our method, please download the model into ```out``` folder.
-- If you want to train our method, please download the pretrained model into ```res``` folder.
-
 # Train
-```shell script
+```
 python train.py
 ```
 - We implement our method by PyTorch and conduct experiments on a NVIDIA 1080Ti GPU. 
-- We adopt ResNet-18 and ResNet-50 pre-trained on ImageNet as backbone networks, respectively.
+- We adopt [ResNet-18](https://download.pytorch.org/models/resnet18-5c106cde.pth) and [ResNet-50](https://download.pytorch.org/models/resnet50-19c8e357.pth) pre-trained on ImageNet as backbone networks, which are saved in ```res``` folder.
 - We train our method on DUTS-TR and test our method on other datasets.
-- After training, the result models will be saved in ```out``` folder.
+- After training, the trained models will be saved in ```out``` folder.
 
 # Test
-```shell script
+```
 python test.py
 ```
 - After testing, saliency maps will be saved in ```eval``` folder.
 
 # Results
+- CTDNet-18: saliency maps;   trained model
+- CTDNet-50: saliency maps;   trained model
 
 # Evaluation
 
