@@ -5,8 +5,8 @@ import os
 import sys
 
 sys.path.append("../")
-from src.net import CTDNet
-import src.dataset as dataset
+from net import CTDNet
+import dataset as dataset
 
 
 def compute_speed():
