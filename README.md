@@ -10,7 +10,7 @@ The PyTorch code for ACM MM2021 paper "Complementary Trilateral Decoder for Fast
 - Apex
 
 # Dataset
-Download the SOD datasets and unzip them into data folder.
+Download the SOD datasets and unzip them into '''data''' folder.
 
 # Model
 - If you want to test our method, please download the model into out folder.
