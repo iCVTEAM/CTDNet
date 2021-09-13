@@ -14,6 +14,7 @@ Download the SOD datasets and unzip them into ```data``` folder.
 
 # Train
 ```
+cd src
 python train.py
 ```
 - We implement our method by PyTorch and conduct experiments on a NVIDIA 1080Ti GPU. 
@@ -23,6 +24,7 @@ python train.py
 
 # Test
 ```
+cd src
 python test.py
 ```
 - After testing, saliency maps will be saved in ```eval``` folder.
