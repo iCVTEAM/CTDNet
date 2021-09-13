@@ -122,20 +122,3 @@ class Data(Dataset):
 
     def __len__(self):
         return len(self.samples)
-
-
-########################### Testing Script ###########################
-if __name__ == '__main__':
-    import matplotlib.pyplot as plt
-    plt.ion()
-
-    cfg = Config(mode='train', datapath='../data/DUTS')
-    data = Data(cfg)
-    for i in range(1000):
-        image, mask = data[i]
-        image = image*cfg.std + cfg.mean
-        plt.subplot(121)
-        plt.imshow(np.uint8(image))
-        plt.subplot(122)
-        plt.imshow(mask)
-        input()
