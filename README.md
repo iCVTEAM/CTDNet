@@ -31,7 +31,7 @@ python test.py
 
 # Results
 - CTDNet-18: saliency maps; [trained model](https://pan.baidu.com/s/1jvprfzYCxPldfFVxWjmWYw) (提取码：ftmz）
-- CTDNet-50: saliency maps;   trained model
+- CTDNet-50: saliency maps; [trained model](https://pan.baidu.com/s/1HkXvNt0yD-jWtgAeqHYaeg) (提取码：ehvv）
 
 # Evaluation
 ```
