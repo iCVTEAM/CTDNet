@@ -30,8 +30,8 @@ python test.py
 - After testing, saliency maps will be saved in ```eval``` folder.
 
 # Results
-- CTDNet-18: saliency maps; [trained model](https://pan.baidu.com/s/1jvprfzYCxPldfFVxWjmWYw) (提取码：ftmz）
-- CTDNet-50: saliency maps; [trained model](https://pan.baidu.com/s/1HkXvNt0yD-jWtgAeqHYaeg) (提取码：ehvv）
+- CTDNet-18： [saliency maps](https://pan.baidu.com/s/1SSZgKFr5EOCaw_hwh_I61A) (提取码：b6ba); [trained model](https://pan.baidu.com/s/1jvprfzYCxPldfFVxWjmWYw) (提取码：ftmz）
+- CTDNet-50： [saliency maps](https://pan.baidu.com/s/1mbuyJ7NcSy6mennXMi_iAA) (提取码：j1zq); [trained model](https://pan.baidu.com/s/1HkXvNt0yD-jWtgAeqHYaeg) (提取码：ehvv）
 
 # Evaluation
 ```
