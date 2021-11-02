@@ -40,5 +40,17 @@ python test.py
 ```
 - We use  MATLAB code to evaluate the performace of our method.
 
+# Citation
+- If you find this work is helpful, please cite our paper
+```
+@inproceedings{zhao2021complementary,
+  title={Complementary Trilateral Decoder for Fast and Accurate Salient Object Detection},
+  author={Zhao, Zhirui and Xia, Changqun and Xie, Chenxi and Li, Jia},
+  booktitle={Proceedings of the 29th ACM International Conference on Multimedia},
+  pages={4967--4975},
+  year={2021}
+}
+```
+
 # Reference
 This project is based on the implementation of [F3Net](https://github.com/weijun88/F3Net).
